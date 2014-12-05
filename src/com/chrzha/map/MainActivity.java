@@ -34,7 +34,7 @@ public class MainActivity extends Activity {
 
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 
-		// ÅÐ¶ÏÍøÂçÁ¬½Ó
+		//get connection
 		ConnectivityManager con = (ConnectivityManager) getSystemService(Activity.CONNECTIVITY_SERVICE);
 		boolean wifi = con.getNetworkInfo(ConnectivityManager.TYPE_WIFI)
 				.isConnectedOrConnecting();
@@ -42,16 +42,16 @@ public class MainActivity extends Activity {
 				.isConnectedOrConnecting();
 
 		if (wifi | internet) {
-			// Ö´ÐÐÏà¹Ø²Ù×÷
-			// ÔÚÊ¹ÓÃSDK¸÷×é¼þÖ®Ç°³õÊ¼»¯contextÐÅÏ¢£¬´«ÈëApplicationContext
-			// ×¢Òâ¸Ã·½·¨ÒªÔÙsetContentView·½·¨Ö®Ç°ÊµÏÖ
+			// Ö´ï¿½ï¿½ï¿½ï¿½Ø²ï¿½ï¿½ï¿½
+			// ï¿½ï¿½Ê¹ï¿½ï¿½SDKï¿½ï¿½ï¿½ï¿½ï¿½Ö®Ç°ï¿½ï¿½Ê¼ï¿½ï¿½contextï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ApplicationContext
+			// ×¢ï¿½ï¿½Ã·ï¿½ï¿½ï¿½Òªï¿½ï¿½setContentViewï¿½ï¿½ï¿½ï¿½Ö®Ç°Êµï¿½ï¿½
 			SDKInitializer.initialize(getApplicationContext());
 			setContentView(R.layout.activity_main);
-			// »ñÈ¡µØÍ¼¿Ø¼þÒýÓÃ
+			// ï¿½ï¿½È¡ï¿½ï¿½Í¼ï¿½Ø¼ï¿½ï¿½ï¿½ï¿½ï¿½
 			mMapView = (MapView) findViewById(R.id.id_bmapView);
 
 		} else {
-			Toast.makeText(getApplicationContext(), "Ç×£¬ÍøÂçÁ¬ÁËÃ´£¿",
+			Toast.makeText(getApplicationContext(), "ï¿½×£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã´ï¿½ï¿½",
 					Toast.LENGTH_LONG).show();
 		}
 
@@ -60,7 +60,7 @@ public class MainActivity extends Activity {
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
-		// ÔÚactivityÖ´ÐÐonDestroyÊ±Ö´ÐÐmMapView.onDestroy()£¬ÊµÏÖµØÍ¼ÉúÃüÖÜÆÚ¹ÜÀí
+		// ï¿½ï¿½activityÖ´ï¿½ï¿½onDestroyÊ±Ö´ï¿½ï¿½mMapView.onDestroy()ï¿½ï¿½Êµï¿½Öµï¿½Í¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½ï¿½ï¿½
 		mMapView.onDestroy();
 		mMapView = null;
 	}
@@ -68,14 +68,14 @@ public class MainActivity extends Activity {
 	@Override
 	protected void onResume() {
 		super.onResume();
-		// ÔÚactivityÖ´ÐÐonResumeÊ±Ö´ÐÐmMapView. onResume ()£¬ÊµÏÖµØÍ¼ÉúÃüÖÜÆÚ¹ÜÀí
+		// ï¿½ï¿½activityÖ´ï¿½ï¿½onResumeÊ±Ö´ï¿½ï¿½mMapView. onResume ()ï¿½ï¿½Êµï¿½Öµï¿½Í¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½ï¿½ï¿½
 		mMapView.onResume();
 	}
 
 	@Override
 	protected void onPause() {
 		super.onPause();
-		// ÔÚactivityÖ´ÐÐonPauseÊ±Ö´ÐÐmMapView. onPause ()£¬ÊµÏÖµØÍ¼ÉúÃüÖÜÆÚ¹ÜÀí
+		// ï¿½ï¿½activityÖ´ï¿½ï¿½onPauseÊ±Ö´ï¿½ï¿½mMapView. onPause ()ï¿½ï¿½Êµï¿½Öµï¿½Í¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½ï¿½ï¿½
 		mMapView.onPause();
 	}
 
@@ -107,11 +107,11 @@ public class MainActivity extends Activity {
 			break;
 		case Menu.FIRST + 3:
 			Intent intent = new Intent();
-			/* Ö¸¶¨intentÒªÆô¶¯µÄÀà */
+			/* Ö¸ï¿½ï¿½intentÒªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
 			intent.setClass(MainActivity.this, SubActivity.class);
-			/* Æô¶¯Ò»¸öÐÂµÄActivity */
+			/* ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Âµï¿½Activity */
 			startActivity(intent);
-			/* ¹Ø±Õµ±Ç°µÄActivity */
+			/* ï¿½Ø±Õµï¿½Ç°ï¿½ï¿½Activity */
 			// MainActivity.this.finish();
 
 			break;
@@ -130,9 +130,9 @@ public class MainActivity extends Activity {
 
 	protected void dialog() {
 		AlertDialog.Builder builder = new Builder(MainActivity.this);
-		builder.setMessage("È·¶¨ÒªÍË³öÂð?");
-		builder.setTitle("ÌáÊ¾");
-		builder.setPositiveButton("È·ÈÏ",
+		builder.setMessage("È·ï¿½ï¿½Òªï¿½Ë³ï¿½ï¿½ï¿½?");
+		builder.setTitle("ï¿½ï¿½Ê¾");
+		builder.setPositiveButton("È·ï¿½ï¿½",
 				new android.content.DialogInterface.OnClickListener() {
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
@@ -143,7 +143,7 @@ public class MainActivity extends Activity {
 								.myPid());
 					}
 				});
-		builder.setNegativeButton("È¡Ïû",
+		builder.setNegativeButton("È¡ï¿½ï¿½",
 				new android.content.DialogInterface.OnClickListener() {
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
@@ -159,18 +159,18 @@ public class MainActivity extends Activity {
 
 		OnGetPoiSearchResultListener poiListener = new OnGetPoiSearchResultListener() {
 			public void onGetPoiResult(PoiResult result) {
-				// »ñÈ¡POI¼ìË÷½á¹û
+				// ï¿½ï¿½È¡POIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			}
 
 			public void onGetPoiDetailResult(PoiDetailResult result) {
-				// »ñÈ¡PlaceÏêÇéÒ³¼ìË÷½á¹û
+				// ï¿½ï¿½È¡Placeï¿½ï¿½ï¿½ï¿½Ò³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			}
 		};
 
 		mPoiSearch.setOnGetPoiSearchResultListener(poiListener);
 
-		mPoiSearch.searchInCity((new PoiCitySearchOption()).city("±±¾©")
-				.keyword("ÃÀÊ³").pageNum(10));
+		mPoiSearch.searchInCity((new PoiCitySearchOption()).city("ï¿½ï¿½ï¿½ï¿½")
+				.keyword("ï¿½ï¿½Ê³").pageNum(10));
 
 		mPoiSearch.destroy();
 	}
