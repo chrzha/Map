@@ -88,7 +88,8 @@ public class MainActivity extends Activity {
 		super.onCreateOptionsMenu(menu);
 		menu.add(Menu.NONE, Menu.FIRST + 1, 1, "General Map");
 		menu.add(Menu.NONE, Menu.FIRST + 2, 2, "Satellite Map");
-		menu.add(Menu.NONE, Menu.FIRST + 3, 3, "Other Test");
+		menu.add(Menu.NONE, Menu.FIRST + 3, 3, "JQuery Mobile");
+		menu.add(Menu.NONE, Menu.FIRST + 4, 4, "Other Test");
 		return true;
 	}
 
@@ -105,12 +106,23 @@ public class MainActivity extends Activity {
 			mBaiduMap = mMapView.getMap();
 			mBaiduMap.setMapType(BaiduMap.MAP_TYPE_SATELLITE);
 			break;
+
 		case Menu.FIRST + 3:
 			Intent intent = new Intent();
 			/* 指定intent要启动的类 */
-			intent.setClass(MainActivity.this, SubActivity.class);
+			intent.setClass(MainActivity.this, JqueryActivity.class);
 			/* 启动一个新的Activity */
 			startActivity(intent);
+			/* 关闭当前的Activity */
+			// MainActivity.this.finish();
+			break;
+
+		case Menu.FIRST + 4:
+			Intent intent1 = new Intent();
+			/* 指定intent要启动的类 */
+			intent1.setClass(MainActivity.this, SubActivity.class);
+			/* 启动一个新的Activity */
+			startActivity(intent1);
 			/* 关闭当前的Activity */
 			// MainActivity.this.finish();
 
@@ -154,7 +166,7 @@ public class MainActivity extends Activity {
 	}
 
 	public void search() {
-		
+
 		PoiSearch mPoiSearch = PoiSearch.newInstance();
 
 		OnGetPoiSearchResultListener poiListener = new OnGetPoiSearchResultListener() {

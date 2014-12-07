@@ -65,6 +65,10 @@
             android:name="com.chrzha.map.ShowPhotoActivity"
             android:label="@string/title_activity_show_photo" >
         </activity>
+        <activity
+            android:name="com.chrzha.map.JqueryActivity"
+            android:label="@string/title_activity_jquery" >
+        </activity>
     </application>
 
 </manifest>
