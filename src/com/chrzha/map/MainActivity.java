@@ -34,7 +34,7 @@ public class MainActivity extends Activity {
 
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 
-		// ÅĞ¶ÏÍøÂçÁ¬½Ó
+		//get connection
 		ConnectivityManager con = (ConnectivityManager) getSystemService(Activity.CONNECTIVITY_SERVICE);
 		boolean wifi = con.getNetworkInfo(ConnectivityManager.TYPE_WIFI)
 				.isConnectedOrConnecting();
@@ -42,16 +42,14 @@ public class MainActivity extends Activity {
 				.isConnectedOrConnecting();
 
 		if (wifi | internet) {
-			// Ö´ĞĞÏà¹Ø²Ù×÷
-			// ÔÚÊ¹ÓÃSDK¸÷×é¼şÖ®Ç°³õÊ¼»¯contextĞÅÏ¢£¬´«ÈëApplicationContext
-			// ×¢Òâ¸Ã·½·¨ÒªÔÙsetContentView·½·¨Ö®Ç°ÊµÏÖ
+			 
 			SDKInitializer.initialize(getApplicationContext());
 			setContentView(R.layout.activity_main);
-			// »ñÈ¡µØÍ¼¿Ø¼şÒıÓÃ
+			
 			mMapView = (MapView) findViewById(R.id.id_bmapView);
 
 		} else {
-			Toast.makeText(getApplicationContext(), "Ç×£¬ÍøÂçÁ¬ÁËÃ´£¿",
+			Toast.makeText(getApplicationContext(), "é”Ÿé˜¶ï½æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·ä¹ˆé”Ÿæ–¤æ‹·",
 					Toast.LENGTH_LONG).show();
 		}
 
@@ -60,7 +58,7 @@ public class MainActivity extends Activity {
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
-		// ÔÚactivityÖ´ĞĞonDestroyÊ±Ö´ĞĞmMapView.onDestroy()£¬ÊµÏÖµØÍ¼ÉúÃüÖÜÆÚ¹ÜÀí
+		
 		mMapView.onDestroy();
 		mMapView = null;
 	}
@@ -68,14 +66,12 @@ public class MainActivity extends Activity {
 	@Override
 	protected void onResume() {
 		super.onResume();
-		// ÔÚactivityÖ´ĞĞonResumeÊ±Ö´ĞĞmMapView. onResume ()£¬ÊµÏÖµØÍ¼ÉúÃüÖÜÆÚ¹ÜÀí
 		mMapView.onResume();
 	}
 
 	@Override
 	protected void onPause() {
 		super.onPause();
-		// ÔÚactivityÖ´ĞĞonPauseÊ±Ö´ĞĞmMapView. onPause ()£¬ÊµÏÖµØÍ¼ÉúÃüÖÜÆÚ¹ÜÀí
 		mMapView.onPause();
 	}
 
@@ -109,21 +105,21 @@ public class MainActivity extends Activity {
 
 		case Menu.FIRST + 3:
 			Intent intent = new Intent();
-			/* Ö¸¶¨intentÒªÆô¶¯µÄÀà */
+ 
+			/* æŒ‡å®šintentè¦å¯åŠ¨çš„ç±» */
 			intent.setClass(MainActivity.this, JqueryActivity.class);
-			/* Æô¶¯Ò»¸öĞÂµÄActivity */
+			/* å¯åŠ¨ä¸€ä¸ªæ–°çš„Activity */
 			startActivity(intent);
-			/* ¹Ø±Õµ±Ç°µÄActivity */
 			// MainActivity.this.finish();
 			break;
 
 		case Menu.FIRST + 4:
 			Intent intent1 = new Intent();
-			/* Ö¸¶¨intentÒªÆô¶¯µÄÀà */
+			/* æŒ‡å®šintentè¦å¯åŠ¨çš„ç±» */
 			intent1.setClass(MainActivity.this, SubActivity.class);
-			/* Æô¶¯Ò»¸öĞÂµÄActivity */
+			/* å¯åŠ¨ä¸€ä¸ªæ–°çš„Activity */
 			startActivity(intent1);
-			/* ¹Ø±Õµ±Ç°µÄActivity */
+			/* å…³é—­å½“å‰çš„Activity */
 			// MainActivity.this.finish();
 
 			break;
@@ -142,9 +138,9 @@ public class MainActivity extends Activity {
 
 	protected void dialog() {
 		AlertDialog.Builder builder = new Builder(MainActivity.this);
-		builder.setMessage("È·¶¨ÒªÍË³öÂğ?");
-		builder.setTitle("ÌáÊ¾");
-		builder.setPositiveButton("È·ÈÏ",
+		builder.setMessage("ç¡®é”Ÿæ–¤æ‹·è¦é”Ÿå‰¿ç­¹æ‹·é”Ÿæ–¤æ‹·?");
+		builder.setTitle("é”Ÿæ–¤æ‹·ç¤º");
+		builder.setPositiveButton("ç¡®é”Ÿæ–¤æ‹·",
 				new android.content.DialogInterface.OnClickListener() {
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
@@ -155,7 +151,7 @@ public class MainActivity extends Activity {
 								.myPid());
 					}
 				});
-		builder.setNegativeButton("È¡Ïû",
+		builder.setNegativeButton("å–é”Ÿæ–¤æ‹·",
 				new android.content.DialogInterface.OnClickListener() {
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
@@ -171,18 +167,16 @@ public class MainActivity extends Activity {
 
 		OnGetPoiSearchResultListener poiListener = new OnGetPoiSearchResultListener() {
 			public void onGetPoiResult(PoiResult result) {
-				// »ñÈ¡POI¼ìË÷½á¹û
 			}
 
 			public void onGetPoiDetailResult(PoiDetailResult result) {
-				// »ñÈ¡PlaceÏêÇéÒ³¼ìË÷½á¹û
 			}
 		};
 
 		mPoiSearch.setOnGetPoiSearchResultListener(poiListener);
 
-		mPoiSearch.searchInCity((new PoiCitySearchOption()).city("±±¾©")
-				.keyword("ÃÀÊ³").pageNum(10));
+		mPoiSearch.searchInCity((new PoiCitySearchOption()).city("é”Ÿæ–¤æ‹·é”Ÿæ–¤æ‹·")
+				.keyword("é”Ÿæ–¤æ‹·é£Ÿ").pageNum(10));
 
 		mPoiSearch.destroy();
 	}

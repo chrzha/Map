@@ -20,7 +20,6 @@ import android.widget.GridView;
 import android.widget.ImageSwitcher;
 import android.widget.ImageView;
 import android.widget.TabHost;
-import android.widget.TabHost.OnTabChangeListener;
 import android.widget.TabHost.TabSpec;
 import android.widget.ViewSwitcher.ViewFactory;
 
@@ -57,11 +56,9 @@ public class SubActivity extends Activity implements OnClickListener,ViewFactory
 
 		tabHost.setCurrentTab(0);
 
-		// 初始化设置一次标签背景
-	//	updateTabBackground(tabHost);
+ 	//	updateTabBackground(tabHost);
 
-		// 选择时背景更改。
-		/*tabHost.setOnTabChangedListener(new OnTabChangeListener() {
+ 		/*tabHost.setOnTabChangedListener(new OnTabChangeListener() {
 			@Override
 			public void onTabChanged(String tabId) {
 				updateTabBackground(tabHost);
@@ -136,18 +133,16 @@ public class SubActivity extends Activity implements OnClickListener,ViewFactory
 
 	
 	 /**
-     * 更新Tab标签的背景图
+     * 锟斤拷锟斤拷Tab锟斤拷签锟侥憋拷锟斤拷图
      * @param tabHost
      */
    /* private void updateTabBackground(final TabHost tabHost) {
         for (int i = 0; i < tabHost.getTabWidget().getChildCount(); i++) {
             View vvv = tabHost.getTabWidget().getChildAt(i);
             if (tabHost.getCurrentTab() == i) {
-                //选中后的背景
-                vvv.setBackgroundDrawable(getResources().getDrawable(R.drawable.menu_itembg_pressed));
+                 vvv.setBackgroundDrawable(getResources().getDrawable(R.drawable.menu_itembg_pressed));
             } else {
-                //非选择的背景
-                vvv.setBackgroundDrawable(getResources().getDrawable(R.drawable.menu_itembg_focused));
+                 vvv.setBackgroundDrawable(getResources().getDrawable(R.drawable.menu_itembg_focused));
             }
         }
     }*/
